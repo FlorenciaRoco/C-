@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_02
+{
+    class Ejercicios
+    {
+      public void Ejercicio4()
+        {
+            string opcion;
+            byte duracion = 0;
+            bool flag = true;
+
+            Console.WriteLine("Seleccione el medio de transporte:" + Environment.NewLine +
+               "Colectivo" + Environment.NewLine +
+               "Subterráneo" + Environment.NewLine +
+               "Bicicleta");
+
+            opcion = Console.ReadLine();
+
+            if (opcion == "Colectivo")
+            {
+                duracion = 30;
+            } 
+            else if (opcion == "Subterráneo")
+            {
+                duracion = 15;
+            }
+            else if (opcion == "Bicicleta")
+            {
+                duracion = 45;
+            } 
+            else
+            {
+                flag = false;
+            }
+
+            if (flag)
+            {
+                Console.WriteLine("Usted eligió: " + opcion + " y tardará " + duracion + " minutos");
+            } 
+            else
+            {
+                Console.WriteLine("Datos incorrecto");
+            }
+        }
+  }
+}
