@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_01
+{
+    class Ejercicios
+    {
+        public void Ejercicio2B()
+        {
+            string nombre;
+            string pais;
+            byte edad;
+
+            Console.Write("Por favor ingrese su nombre: ");
+            nombre = Console.ReadLine();
+
+            Console.Write("Por favor ingrese su Pais: ");
+            pais = Console.ReadLine();
+
+            Console.Write("Por favor ingrese su edad: ");
+            edad = Convert.ToByte(Console.ReadLine());
+
+            Console.WriteLine("Su nombre es " + nombre + ", su pais es " + pais +
+                " y su edad es " + edad);
+        }
+    }
+}
