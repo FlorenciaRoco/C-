@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_02
+{
+    class Ejercicios
+    {
+        public void Ejercicio2()
+        {
+            float acumulador = 0;
+            float monto;
+            bool esValido;
+
+            do
+            {
+                Console.Write("Ingrese el total de la venta o ´0´ para salir: ");
+                monto = Convert.ToSingle(Console.ReadLine());
+                acumulador += monto;
+
+                if (monto == 0)
+                {                    
+                    esValido = false;
+                }
+                else
+                {
+                    esValido = true;
+                }
+
+            } while (esValido == true);
+
+            Console.WriteLine("El total es: " + acumulador);
+        }
+  }
+}
