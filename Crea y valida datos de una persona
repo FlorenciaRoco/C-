@@ -1,0 +1,170 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_05
+{
+    class Ejercicios
+    {
+        //EJERCICIO 4
+        public Persona CrearPersona()
+        {
+            string nombre;
+            string apellido;
+            string genero;
+            string dni;
+            int salidaDNI = 0;
+            string edad;
+            int salidaEdad = 0;
+            string fecha;
+            DateTime salidaFecha = DateTime.Now;
+            bool flag;
+
+            do
+            {
+                Console.Write("Ingrese el DNI de la persona: ");
+                dni = Console.ReadLine();
+                flag = ValidarNroPositivo(dni, ref salidaDNI);
+
+            } while (flag == false);
+
+            do
+            {
+                Console.Write("Ingrese la Edad de la persona: ");
+                edad = Console.ReadLine();
+                flag = ValidarNroPositivo(edad, ref salidaEdad);
+
+            } while (flag == false);
+
+            do
+            {
+                Console.Write("Ingrese el nombre de la persona: ");
+                nombre = Console.ReadLine();
+                flag = ValidarTexto(nombre, "Nombre");
+
+            } while (flag == false);
+
+            do
+            {
+                Console.Write("Ingrese el apellido de la persona: ");
+                apellido = Console.ReadLine();
+                flag = ValidarTexto(nombre, "Apellido");
+
+            } while (flag == false);
+
+            do
+            {
+                Console.Write("Ingrese el genero de la persona: ");
+                genero = Console.ReadLine();
+                flag = ValidarTexto(nombre, "Genero");
+
+            } while (flag == false);
+
+            do
+            {
+                Console.Write("Ingrese la fecha de nacimiento de la persona: ");
+                fecha = Console.ReadLine();
+                flag = ValidarFecha(fecha, ref salidaFecha);
+
+            } while (flag == false);
+
+            Persona persona = new Persona(
+                salidaDNI,
+                Convert.ToByte(salidaEdad),
+                nombre,
+                apellido,
+                genero,
+                salidaFecha
+                );
+
+            return persona;
+        }
+
+        private bool ValidarNroPositivo(string numero, ref int salida)
+        {
+            bool flag = false;
+
+            if (!int.TryParse(numero, out salida))
+            {
+                Console.WriteLine("El valor debe ser numerico.");
+            }
+            else if (salida <= 0)
+            {
+                Console.WriteLine("El numero debe ser positivo.");
+            }
+            else
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
+
+        private bool ValidarTexto(string valor, string campo)
+        {
+            bool flag = false;
+
+            if (string.IsNullOrEmpty(valor))
+            {
+                Console.WriteLine("El campo {0} no debe ser vacio.", campo);
+            }
+            else
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
+
+        private bool ValidarFecha(string fecha, ref DateTime salida)
+        {
+            bool flag = false;
+
+            if (!DateTime.TryParse(fecha, out salida))
+            {
+                Console.WriteLine("El dato no es una fecha valida.");
+            }
+            else if (salida > DateTime.Now)
+            {
+                Console.WriteLine("La fecha no debe ser mayor a hoy.");
+            }
+            else
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
+
+        //EJERCICIO 6
+        public void MostrarDatos(Persona persona)
+        {
+            Console.WriteLine(persona.ToString());
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Ejercicios e = new Ejercicios();
+
+            Persona persona = e.CrearPersona();
+            persona.Saludar();
+            persona.CumplirAños();
+
+            if (persona.esMayorDeEdad())
+            {
+                Console.WriteLine("La persona es mayor de edad.");
+            }
+            else
+            {
+                Console.WriteLine("La persona es menor de edad.");
+            }
+
+            e.MostrarDatos(persona);
+        }
+    }
+}
+
