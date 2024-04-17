@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_01
+{
+    class Ejercicios
+    {
+    public void Ejercicio11()
+        {
+            float precio1 = 300.00f;
+            float precio2 = 500.50f;
+            float precio3 = 800.90f;
+            float total;
+
+            int UnidadesDelproducto1;
+            int UnidadesDelproducto2;
+            int UnidadesDelproducto3;
+
+            Console.Write("Por favor ingrese la cantidad de unidades compradas del producto 1:");
+            UnidadesDelproducto1 = Convert.ToByte(Console.ReadLine());
+            Console.Write("Por favor ingrese la cantidad unidades compradas del producto 2:");
+            UnidadesDelproducto2 = Convert.ToByte(Console.ReadLine());
+            Console.Write("Por favor ingrese la cantidad unidades compradas del producto 3:");
+            UnidadesDelproducto3 = Convert.ToByte(Console.ReadLine());
+
+            total = UnidadesDelproducto1 * precio1 + UnidadesDelproducto2 * precio2 + UnidadesDelproducto3 * precio3;
+            Console.WriteLine("El importe total a pagar es " + total);
+        }
+
+    }
+}
