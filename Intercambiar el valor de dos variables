@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_03
+{
+    class Ejercicios
+    {
+        public void Ejercicio3()
+        {
+            int var1;
+            int var2;
+
+            Console.Write("Ingrese el valor de la variable 1: ");
+            var1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Ingrese el valor de la variable 2: ");
+            var2 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Var1: " + var1 + ", Var2: " + var2);
+
+            Console.WriteLine("Ahora se intercambiarán los valores.");
+
+            IntercambiarValores(ref var1, ref var2);
+
+            Console.WriteLine("Var1: " + var1 + ", Var2: " + var2);
+        }
+
+        private void IntercambiarValores(ref int variable1, ref int variable2)
+        {
+            int aux;
+
+            aux = variable1;
+
+            variable1 = variable2;
+            variable2 = aux;
+        }
+  }
+}
