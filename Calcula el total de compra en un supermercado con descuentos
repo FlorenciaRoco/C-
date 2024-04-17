@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_02
+{
+    class Ejercicios
+    {
+       public void Ejercicio14()
+        {
+            // PROGRAMA PARA SUPERMERCADO
+            string precio;
+            float salida = 0;
+            int contador = 0;
+            float acumulador = 0;
+            float total;
+            float descuento;
+            bool flag;
+
+            do
+            {
+                do
+                {
+                    Console.Write("Ingrese el precio o -1 para salir: ");
+                    precio = Console.ReadLine();
+                    flag = ValidarPrecio(precio, ref salida);
+
+                } while (flag == false);
+
+                if (salida != -1)
+                {
+                    contador++;
+                    acumulador += salida;
+                }
+
+            } while (salida != -1);
+
+            if (acumulador >= 300)
+            {
+                descuento = acumulador * 0.07f;
+            }
+            else if (acumulador >= 200)
+            {
+                descuento = acumulador * 0.05f;
+            }
+            else if (acumulador >= 100)
+            {
+                descuento = acumulador * 0.03f;
+            }
+            else if (contador >= 10)
+            {
+                descuento = acumulador * 0.015f;
+            }
+            else
+            {
+                descuento = 0;
+            }
+
+            total = acumulador - descuento;
+
+            Console.WriteLine("TOTAL A PAGAR: $ " + total);
+            Console.WriteLine("TOTAL DESCUENTO: $ " + descuento);
+            Console.WriteLine("CANTIDAD DE PRODUCTOS: " + contador);
+        }
+
+        private bool ValidarPrecio(string precio, ref float Salida)
+        {
+            bool flag = false;
+
+            if (!float.TryParse(precio, out Salida))
+            {
+                Console.WriteLine("Debe ingresar un valor numerico");
+            }
+            else if (Salida > 50)
+            {
+                Console.WriteLine("El precio no puede ser mayor a 50");
+            }
+            else if (Salida <= 0 && Salida != -1)
+            {
+                Console.WriteLine("El precio debe ser positivo");
+            }
+            else
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
+    } 
+}
