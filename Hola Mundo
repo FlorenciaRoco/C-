@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_01
+{
+    class Ejercicios
+    {
+        public void Ejercicio1()
+        {
+            Console.WriteLine("Hola Mundo!");
+        }
+  	}
+}
