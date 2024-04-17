@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_04
+{
+    class Ejercicios
+    {   
+        public void Ejercicio11()
+        {
+            string nombre;
+            string stock;
+            string costo;
+            string costoAnterior;
+            float costoFinal;
+            float salidaStock = 0;
+            float salidaCosto = 0;
+            int pos;
+            bool flag;
+
+            Console.Write("Ingrese el nombre del producto para actualizar el stock: ");
+            nombre = Console.ReadLine();
+
+            pos = BuscarProducto(nombre);
+
+            if (pos == -1)
+            {
+                Console.WriteLine("El producto no existe.");
+            }
+            else
+            {
+                do
+                {
+                    Console.Write("Ingrese el nuevo stock del producto: ");
+                    stock = Console.ReadLine();
+                    flag = ValidarDecimal(stock, ref salidaStock);
+                } while (flag == false);
+
+                do
+                {
+                    Console.Write("Ingrese el nuevo costo del producto: ");
+                    costo = Console.ReadLine();
+                    flag = ValidarDecimal(costo, ref salidaCosto);
+                } while (flag == false);
+
+                productos[pos, 1] = salidaStock.ToString(); //Asigno el nuevo stock
+
+                if (salidaStock > 0)
+                {
+                    costoAnterior = productos[pos, 1];
+                    costoFinal = (Convert.ToSingle(costoAnterior) + salidaCosto) / 2;
+                    productos[pos, 1] = costoFinal.ToString(); //Asigno el nuevo costo
+                }
+
+                Console.WriteLine("Se actualizaron los valores del producto.");
+
+            }
+        }
+    }    
+}
