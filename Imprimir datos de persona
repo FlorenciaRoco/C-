@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_01
+{
+    class Ejercicios
+    {
+        public void Ejercicio2A()
+        {
+            string nombre = "Mariano";
+            string pais = "Argentina";
+            byte edad = 30;
+
+            Console.WriteLine("Su nombre es " + nombre + ", su pais es " + pais +
+                " y su edad es " + edad);
+        }
+  	}
+}
