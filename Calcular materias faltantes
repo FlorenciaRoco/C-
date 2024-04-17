@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Guia_01
+{
+    class Ejercicios
+    {
+        public void Ejercicio4B()
+        {
+            const byte materias = 32;
+            byte aprobadas;
+            int faltantes;
+
+            Console.Write("Por favor escriba la cantidad de materias que aprobó: ");
+            aprobadas = Convert.ToByte(Console.ReadLine());
+
+            faltantes = materias - aprobadas;
+
+            Console.WriteLine("La cantidad de materias faltantes para recibirse es de " + faltantes);
+
+        }
+    }
+}
